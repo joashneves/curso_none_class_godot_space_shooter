@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dxybqihav7wpn"]
+
+[ext_resource type="Texture2D" uid="uid://c14lt05fv7uha" path="res://Assets/Jogador/spr_jogador[0].png" id="1_ivevv"]
+[ext_resource type="Script" uid="uid://ss8ttijfbdft" path="res://Scene/Player/player.gd" id="1_jd8gp"]
+[ext_resource type="PackedScene" uid="uid://dliuq3gt33cwk" path="res://Scene/Bullet/Bullet.tscn" id="2_ewflj"]
+[ext_resource type="Texture2D" uid="uid://et2pf8uyxlkh" path="res://Assets/Jogador/spr_jogador[1].png" id="2_r6jsd"]
+[ext_resource type="Texture2D" uid="uid://b1nu1qrvfsgau" path="res://Assets/Jogador/spr_jogador[2].png" id="3_p6qlh"]
+[ext_resource type="Texture2D" uid="uid://24m25uvtmq2k" path="res://Assets/Jogador/spr_jogador[3].png" id="4_2sw5t"]
+[ext_resource type="Texture2D" uid="uid://c4gj4cps4epnt" path="res://Assets/Jogador/spr_jogador[4].png" id="5_ij4jb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efxa6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ivevv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r6jsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p6qlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2sw5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ij4jb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dg77c"]
+radius = 13.0
+
+[node name="Player" type="CharacterBody2D" unique_id=206567259]
+script = ExtResource("1_jd8gp")
+bullet_scene = ExtResource("2_ewflj")
+left_limit = 23.0
+right_limit = 266.0
+bottom_limit = 488.0
+top_limit = 45.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1161110399]
+sprite_frames = SubResource("SpriteFrames_efxa6")
+autoplay = "default"
+frame_progress = 0.3040977
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1154739111]
+shape = SubResource("CapsuleShape2D_dg77c")
+
+[node name="Shot_point" type="Marker2D" parent="." unique_id=2013723179]
+position = Vector2(0, -18)

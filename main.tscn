@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bd3icnjda5bti"]
+
+[ext_resource type="Script" uid="uid://mt6lybav6dev" path="res://parallax_background.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cv1xmfr7lulm1" path="res://Assets/Background/Background_sem_blur.png" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dxybqihav7wpn" path="res://Scene/Player/player.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=972458302]
+
+[node name="ParallaxBackground" type="Parallax2D" parent="." unique_id=515701509]
+repeat_size = Vector2(0, 512)
+autoscroll = Vector2(0, 100)
+script = ExtResource("1_h2yge")
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground" unique_id=516970882]
+texture = ExtResource("1_ig7tw")
+centered = false
+
+[node name="Player" parent="." unique_id=206567259 instance=ExtResource("2_0xm2m")]
+position = Vector2(143, 449)
