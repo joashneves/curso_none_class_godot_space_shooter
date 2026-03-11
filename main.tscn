@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://mt6lybav6dev" path="res://parallax_background.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cv1xmfr7lulm1" path="res://Assets/Background/Background_sem_blur.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://biyfhfwaeywu2" path="res://main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dxybqihav7wpn" path="res://Scene/Player/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bpptt8tsea0r3" path="res://Scene/Enemy/Enemy_1/enemy_1.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c5a0c6ofhose4" path="res://Scene/Power_up_speed/power_up_speed.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node2D" unique_id=972458302]
+script = ExtResource("1_lquwl")
 
 [node name="ParallaxBackground" type="Parallax2D" parent="." unique_id=515701509]
 repeat_size = Vector2(0, 512)
@@ -16,4 +20,10 @@ texture = ExtResource("1_ig7tw")
 centered = false
 
 [node name="Player" parent="." unique_id=206567259 instance=ExtResource("2_0xm2m")]
-position = Vector2(143, 449)
+position = Vector2(143, 366)
+
+[node name="Enemy_1" parent="." unique_id=2147063122 instance=ExtResource("4_1bvp3")]
+position = Vector2(148, -49)
+
+[node name="PowerUpSpeed" parent="." unique_id=1010119574 instance=ExtResource("6_7mycd")]
+position = Vector2(142, -70)
