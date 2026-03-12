@@ -37,6 +37,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_r2uqx"]
 radius = 17.029387
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dcche"]
+radius = 16.0
+height = 516.0
+
 [node name="Enemy_1" type="Area2D" unique_id=2147063122]
 script = ExtResource("1_dcche")
 
@@ -48,5 +52,12 @@ frame_progress = 0.52577287
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80598978]
 position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_r2uqx")
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=17234219]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=587514330]
+position = Vector2(0, 252)
+shape = SubResource("CapsuleShape2D_dcche")
+debug_color = Color(0.9885414, 0.10597164, 0, 0.41960785)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

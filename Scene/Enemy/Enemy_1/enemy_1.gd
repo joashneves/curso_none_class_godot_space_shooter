@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_Bullet"):
 		Destroy_VFX()
-		var range = randf_range(0, 10)
-		if range > power_up_chance:
+		var range_number = randf_range(0, 10)
+		if range_number > power_up_chance:
 			Create_PowerUp()
 		queue_free()
 		area.queue_free()
