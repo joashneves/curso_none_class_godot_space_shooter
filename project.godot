@@ -21,6 +21,11 @@ window/size/viewport_width=288
 window/size/viewport_height=512
 window/handheld/orientation=1
 
+[global_group]
+
+power_up_speed=""
+power_up_shoot=""
+
 [input]
 
 move_right={

@@ -34,6 +34,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dg77c"]
 radius = 13.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewflj"]
+size = Vector2(31, 34)
+
 [node name="Player" type="CharacterBody2D" unique_id=206567259]
 script = ExtResource("1_jd8gp")
 bullet_scene = ExtResource("2_ewflj")
@@ -52,3 +55,15 @@ shape = SubResource("CapsuleShape2D_dg77c")
 
 [node name="Shot_point" type="Marker2D" parent="." unique_id=2013723179]
 position = Vector2(0, -18)
+
+[node name="Shot_point_left" type="Marker2D" parent="." unique_id=2006704107]
+position = Vector2(-20, 0)
+
+[node name="Shot_point_Right" type="Marker2D" parent="." unique_id=1980740307]
+position = Vector2(20, 0)
+
+[node name="Detector" type="Area2D" parent="." unique_id=1482674861]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=267920929]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ewflj")

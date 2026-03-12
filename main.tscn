@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxybqihav7wpn" path="res://Scene/Player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bpptt8tsea0r3" path="res://Scene/Enemy/Enemy_1/enemy_1.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c5a0c6ofhose4" path="res://Scene/Power_up_speed/power_up_speed.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bay2yn1oit5ch" path="res://Scene/Power_up_shoot/Power_up_shoot.tscn" id="7_272bh"]
 
 [node name="Main" type="Node2D" unique_id=972458302]
 script = ExtResource("1_lquwl")
@@ -27,3 +28,6 @@ position = Vector2(148, -49)
 
 [node name="PowerUpSpeed" parent="." unique_id=1010119574 instance=ExtResource("6_7mycd")]
 position = Vector2(142, -70)
+
+[node name="PowerUpShoot" parent="." unique_id=262039512 instance=ExtResource("7_272bh")]
+position = Vector2(76, -34)
