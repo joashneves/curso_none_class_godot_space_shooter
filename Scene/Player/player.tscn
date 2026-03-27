@@ -37,7 +37,68 @@ radius = 13.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewflj"]
 size = Vector2(31, 34)
 
-[node name="Player" type="CharacterBody2D" unique_id=206567259]
+[sub_resource type="Animation" id="Animation_ewflj"]
+resource_name = "Hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.99607843, 0.023529412, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2x3rd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_usf6g"]
+_data = {
+&"Hit": SubResource("Animation_ewflj"),
+&"RESET": SubResource("Animation_2x3rd")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=206567259 groups=["player"]]
 script = ExtResource("1_jd8gp")
 bullet_scene = ExtResource("2_ewflj")
 left_limit = 23.0
@@ -67,3 +128,6 @@ position = Vector2(20, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" unique_id=267920929]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ewflj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=445242609]
+libraries/ = SubResource("AnimationLibrary_usf6g")

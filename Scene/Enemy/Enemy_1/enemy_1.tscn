@@ -41,6 +41,9 @@ radius = 17.029387
 radius = 16.0
 height = 516.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcche"]
+size = Vector2(25, 6)
+
 [node name="Enemy_1" type="Area2D" unique_id=2147063122]
 script = ExtResource("1_dcche")
 
@@ -60,4 +63,13 @@ position = Vector2(0, 252)
 shape = SubResource("CapsuleShape2D_dcche")
 debug_color = Color(0.9885414, 0.10597164, 0, 0.41960785)
 
+[node name="DestructionArea" type="Area2D" parent="." unique_id=658902150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructionArea" unique_id=1117690808]
+position = Vector2(0.5, 26)
+shape = SubResource("RectangleShape2D_dcche")
+debug_color = Color(0.4634735, 0.4452408, 1, 0.41960785)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
+[connection signal="body_entered" from="DestructionArea" to="." method="_on_destruction_area_body_entered"]

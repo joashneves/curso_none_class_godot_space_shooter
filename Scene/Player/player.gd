@@ -4,10 +4,12 @@ extends CharacterBody2D
 @onready var shot_point_left: Marker2D = $Shot_point_left
 @onready var shot_point_right: Marker2D = $Shot_point_Right
 
+@onready var anim : AnimationPlayer = $AnimationPlayer
 
 @onready var detector: Area2D = $Detector
 @export var bullet_scene : PackedScene;
 
+@export var player_health : int = 3
 @export var player_speed : float = 2
 @export var player_speed_power_up : float = 4
 var player_speed_default : float = player_speed;
@@ -24,6 +26,9 @@ var can_shoot : bool = true;
 @export var right_limit : float 
 @export var bottom_limit : float
 @export var top_limit : float
+
+
+var explosion_scene = preload("res://Scene/Particulas/Explosion_VFX.tscn")
 
 func _ready() -> void:
 	player_speed = player_speed_default
@@ -97,3 +102,8 @@ func powerups(delta: float) -> void:
 			area.queue_free()
 			power_up_shoot_active = true
 			power_up_timer = power_up_charger
+
+func Player_Death() -> void:
+	var explosion = explosion_scene.instantiate()
+	explosion.global_position = global_position
+	get_parent().add_child(explosion)
