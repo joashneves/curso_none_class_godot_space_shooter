@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bpptt8tsea0r3" path="res://Scene/Enemy/Enemy_1/enemy_1.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c5a0c6ofhose4" path="res://Scene/Power_up_speed/power_up_speed.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bay2yn1oit5ch" path="res://Scene/Power_up_shoot/Power_up_shoot.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://c8b2i8xl56upk" path="res://Scene/Enemy/Enemy_2/enemy_2.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cgomvdd7tofuy" path="res://Scene/Enemy/Enemy_3/Enemy_3.tscn" id="9_kek77"]
 
 [node name="Main" type="Node2D" unique_id=972458302]
 script = ExtResource("1_lquwl")
@@ -31,3 +33,9 @@ position = Vector2(142, -70)
 
 [node name="PowerUpShoot" parent="." unique_id=262039512 instance=ExtResource("7_272bh")]
 position = Vector2(76, -34)
+
+[node name="Enemy_2" parent="." unique_id=1490272939 instance=ExtResource("8_5vw27")]
+position = Vector2(202, -25)
+
+[node name="Enemy_3" parent="." unique_id=965534426 instance=ExtResource("9_kek77")]
+position = Vector2(143, -155)

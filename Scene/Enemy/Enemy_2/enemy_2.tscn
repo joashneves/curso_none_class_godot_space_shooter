@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c8b2i8xl56upk"]
+
+[ext_resource type="Script" uid="uid://d2cj8y81863d7" path="res://Scene/Enemy/Enemy_2/enemy_2.gd" id="1_3y4r4"]
+[ext_resource type="Texture2D" uid="uid://dv1kba2v7o04r" path="res://Assets/Inimigos/Inimigo2/spr_inimigo2[0].png" id="1_5xag0"]
+[ext_resource type="Texture2D" uid="uid://3l324wu4jkn8" path="res://Assets/Inimigos/Inimigo2/spr_inimigo2[1].png" id="2_3y4r4"]
+[ext_resource type="Texture2D" uid="uid://dav3jogf51sn" path="res://Assets/Inimigos/Inimigo2/spr_inimigo2[2].png" id="3_2cvcf"]
+[ext_resource type="Texture2D" uid="uid://gtk55alys3el" path="res://Assets/Inimigos/Inimigo2/spr_inimigo2[3].png" id="4_qlalk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vivmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5xag0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3y4r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2cvcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qlalk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ns8"]
+size = Vector2(33, 35)
+
+[node name="Enemy_2" type="Area2D" unique_id=1490272939]
+script = ExtResource("1_3y4r4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1714214951]
+sprite_frames = SubResource("SpriteFrames_vivmo")
+autoplay = "default"
+frame_progress = 0.60839915
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1548196234]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_a5ns8")
+
+[node name="Timer" type="Timer" parent="." unique_id=697765403]
+wait_time = 1.5
+autostart = true
+
+[node name="bulletpoint" type="Marker2D" parent="." unique_id=1704340755]
+position = Vector2(0, 25)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
