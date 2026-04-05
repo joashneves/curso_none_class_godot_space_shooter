@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dox3eyyobufm0"]
+
+[ext_resource type="Script" uid="uid://dg44ra4i4kug" path="res://Scene/Enemy/Enemy_3/Bullet/enemy_3_bullet.gd" id="1_3iw62"]
+[ext_resource type="Texture2D" uid="uid://cu05rx64o4qw2" path="res://Assets/Inimigos/Inimigo3/spr_tiro1_inimigo3_contorno[0].png" id="1_lj3vb"]
+[ext_resource type="Texture2D" uid="uid://dj7c8mw7avg4k" path="res://Assets/Inimigos/Inimigo3/spr_tiro1_inimigo3_contorno[1].png" id="2_3iw62"]
+[ext_resource type="Texture2D" uid="uid://b7s0rklxcwgaq" path="res://Assets/Inimigos/Inimigo3/spr_tiro1_inimigo3_contorno[2].png" id="3_sdv44"]
+[ext_resource type="Texture2D" uid="uid://ct5mhurwccse2" path="res://Assets/Inimigos/Inimigo3/spr_tiro1_inimigo3_contorno[3].png" id="4_qlpiu"]
+[ext_resource type="Texture2D" uid="uid://doqxct8ndap5d" path="res://Assets/Inimigos/Inimigo3/spr_tiro1_inimigo3_contorno[4].png" id="5_fl448"]
+[ext_resource type="Texture2D" uid="uid://dlqqdubd5rl4x" path="res://Assets/Inimigos/Inimigo3/spr_tiro1_inimigo3_contorno[5].png" id="6_xik2q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h8gfc"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0u2mc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lj3vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3iw62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sdv44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qlpiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fl448")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xik2q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy3Bullet" type="Area2D" unique_id=1091118230]
+script = ExtResource("1_3iw62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054888139]
+shape = SubResource("CapsuleShape2D_h8gfc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=994318710]
+sprite_frames = SubResource("SpriteFrames_0u2mc")
+frame_progress = 0.025697542
+
+[node name="Timer" type="Timer" parent="." unique_id=961766950]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

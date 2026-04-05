@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://blmv4khsy36ro" path="res://Assets/Inimigos/Inimigo3/spr_inimigo03_strip6.png" id="1_n68l7"]
 [ext_resource type="Script" uid="uid://besy0ohsq473j" path="res://Scene/Enemy/Enemy_3/enemy_3.gd" id="1_t0r0h"]
+[ext_resource type="PackedScene" uid="uid://dox3eyyobufm0" path="res://Scene/Enemy/Enemy_3/Bullet/enemy_3_bullet.tscn" id="2_6v75x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v75x"]
+size = Vector2(48, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0r0h"]
 atlas = ExtResource("1_n68l7")
@@ -53,17 +57,58 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v75x"]
-size = Vector2(48, 54)
+[sub_resource type="Animation" id="Animation_6v75x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kgixu"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_foax6"]
+_data = {
+&"RESET": SubResource("Animation_6v75x"),
+&"hit": SubResource("Animation_kgixu")
+}
 
 [node name="Enemy_3" type="Area2D" unique_id=965534426]
 script = ExtResource("1_t0r0h")
+bullet_scene = ExtResource("2_6v75x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493844985]
+position = Vector2(-1, 17)
+shape = SubResource("RectangleShape2D_6v75x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1777429353]
 sprite_frames = SubResource("SpriteFrames_egsb3")
 autoplay = "default"
 frame_progress = 0.07365732
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493844985]
-position = Vector2(-1, 17)
-shape = SubResource("RectangleShape2D_6v75x")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1335783523]
+libraries/ = SubResource("AnimationLibrary_foax6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
