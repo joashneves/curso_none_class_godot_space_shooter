@@ -131,3 +131,6 @@ shape = SubResource("RectangleShape2D_ewflj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=445242609]
 libraries/ = SubResource("AnimationLibrary_usf6g")
+
+[node name="Particule_point" type="Marker2D" parent="." unique_id=1571573974]
+position = Vector2(0, 8)

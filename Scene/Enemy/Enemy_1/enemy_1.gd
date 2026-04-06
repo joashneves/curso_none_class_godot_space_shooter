@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var camera : Camera2D = get_tree().get_first_node_in_group("camera")
+
 @export var enemy_speed : float = 100
 @export var enemy_1_attack_speed : float = 230
 var player_detected : bool = false;
@@ -27,6 +29,8 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_Bullet"):
+		AutoloadCamera2d.screen_shake()
+		GameManager.Add_Points(10)
 		Destroy_VFX()
 		var range_number = randf_range(0, 10)
 		if range_number > power_up_chance:
@@ -59,5 +63,4 @@ func _on_destruction_area_body_entered(body: Node2D) -> void:
 		body.anim.play("Hit")
 		if body.player_health < 0:
 			body.Player_Death()
-			body.queue_free()
 			

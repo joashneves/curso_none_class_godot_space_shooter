@@ -27,6 +27,9 @@ var can_shoot : bool = true;
 @export var bottom_limit : float
 @export var top_limit : float
 
+@onready var particule_point: Marker2D = $Particule_point
+const CPU_PARTICLES_2D = preload("uid://bwful4iukpp7n")
+
 
 var explosion_scene = preload("res://Scene/Particulas/Explosion_VFX.tscn")
 
@@ -95,6 +98,7 @@ func powerups(delta: float) -> void:
 		power_up_shoot_active = false
 	for area in detector.get_overlapping_areas():
 		if area.is_in_group("power_up_speed"):
+			Player_Turbo_Effect()
 			area.queue_free()
 			player_speed = player_speed_power_up
 			power_up_timer = power_up_charger
@@ -104,6 +108,18 @@ func powerups(delta: float) -> void:
 			power_up_timer = power_up_charger
 
 func Player_Death() -> void:
+	visible = false
 	var explosion = explosion_scene.instantiate()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
+	await get_tree().create_timer(1.0).timeout
+	GameManager.Game_over()
+	queue_free()
+	
+func Player_Turbo_Effect() -> void:
+	var turbo_VFX = CPU_PARTICLES_2D.instantiate()
+	turbo_VFX.position = particule_point.position
+	particule_point.add_child(turbo_VFX)
+	
+	await get_tree().create_timer(power_up_timer).timeout
+	turbo_VFX.queue_free()

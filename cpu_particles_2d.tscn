@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bwful4iukpp7n"]
+
+[sub_resource type="Curve" id="Curve_lquwl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.98404264, 0.1685394), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(0.654902, 0.44705883, 0, 1, 1, 0.27450982, 0.15686275, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=1260142780]
+amount = 12
+lifetime = 0.25
+emission_shape = 1
+emission_sphere_radius = 6.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_lquwl")
+color_ramp = SubResource("Gradient_lquwl")

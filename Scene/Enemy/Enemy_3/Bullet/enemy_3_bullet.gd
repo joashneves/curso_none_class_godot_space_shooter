@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 		if body.player_health < 0:
 			body.Player_Death()
-			body.queue_free()
+
 
 
 func _on_timer_timeout() -> void:

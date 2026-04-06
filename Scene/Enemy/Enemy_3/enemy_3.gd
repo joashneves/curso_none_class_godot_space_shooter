@@ -2,7 +2,10 @@ extends Area2D
 
 enum State { ENTER, ATTACK, LEAVE}
 
+signal final_enemy_defeated
+
 @onready var anim: AnimationPlayer = $AnimationPlayer
+
 
 @export var enemy_3_health : int = 3
 
@@ -22,6 +25,10 @@ var state : State = State.ENTER
 
 var attack_timer : float = 0
 var shoot_timer : float = 0
+
+func _ready() -> void:
+	final_enemy_defeated.connect(GameManager.On_Final_Enemy_Defeated)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -45,7 +52,7 @@ func _process(delta: float) -> void:
 		State.LEAVE:
 			position.y += speed * delta
 			
-			if position.y > 560:
+			if position.y > 600:
 				queue_free()
 			
 			
@@ -73,12 +80,15 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player_Bullet"):
+		AutoloadCamera2d.screen_shake()
 		enemy_3_health -= 1
 		area.queue_free()
 		anim.play('hit')
 		if enemy_3_health <= 0:
-			print("Morri")
+			emit_signal("final_enemy_defeated")
 			var vfx = EXPLOSION_VFX.instantiate()
 			vfx.global_position = global_position
 			get_parent().add_child(vfx)
 			queue_free()
+			GameManager.Add_Points(30)
+		

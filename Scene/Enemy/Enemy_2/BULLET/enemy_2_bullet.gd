@@ -17,5 +17,5 @@ func _on_body_entered(body: Node2D) -> void:
 		body.anim.play("Hit")
 		if body.player_health < 0:
 			body.Player_Death()
-			body.queue_free()
+
 		queue_free()

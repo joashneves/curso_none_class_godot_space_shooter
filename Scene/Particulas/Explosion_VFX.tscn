@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4bevwioewu4g" path="res://Assets/Particulas/Inimigo/inimigo_explosão_completa[9].png" id="10_2edfk"]
 [ext_resource type="Texture2D" uid="uid://ba3c4dtd8b8pc" path="res://Assets/Particulas/Inimigo/inimigo_explosão_completa[10].png" id="11_42dsl"]
 [ext_resource type="Script" uid="uid://dahcfdo0ojlj7" path="res://Scene/Particulas/explosion_vfx.gd" id="12_bxsw0"]
+[ext_resource type="AudioStream" uid="uid://c0x63cdo08ljs" path="res://Assets/Sons/sfx_explosion.wav" id="13_q0x78"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eijfw"]
 animations = [{
@@ -61,5 +62,10 @@ autoplay = "default"
 frame = 10
 frame_progress = 1.0
 script = ExtResource("12_bxsw0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1596378615]
+stream = ExtResource("13_q0x78")
+volume_db = -11.664
+autoplay = true
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -2,7 +2,7 @@ extends Area2D
 
 const ENEMY_2_BULLET = preload("uid://bp32rthqs2pgg")
 
-@onready var enemy_2_speed : float = 30
+@onready var enemy_2_speed : float = 200
 
 @onready var bulletpoint: Marker2D = $bulletpoint
 

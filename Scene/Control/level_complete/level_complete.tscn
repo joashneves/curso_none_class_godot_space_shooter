@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bwcupxahyav2r"]
+
+[ext_resource type="Script" uid="uid://x3l6e4flif68" path="res://Scene/Control/level_complete/level_complete.gd" id="1_81o61"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jjve"]
+bg_color = Color(0.54901963, 0.6, 0.6, 0.47058824)
+
+[node name="Level_Complete" type="Control" unique_id=975871227]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81o61")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=99107963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=503025090]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1767159049]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Level Completo!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=470753866]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_6jjve")
+text = "Menu"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=61275459]
+anchor_mode = 0
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c5sq2x4j8lnp8"]
+
+[ext_resource type="Script" uid="uid://bfsugbb38xhx8" path="res://Scene/Control/Menu_principal/menu_principal.gd" id="1_tkhaq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77mu4"]
+bg_color = Color(0.54901963, 0.6, 0.6, 0.47058824)
+
+[node name="MenuPrincipal" type="Control" unique_id=1050620504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tkhaq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1796487954]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="Label" type="Label" parent="." unique_id=781655645]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 288.0
+offset_bottom = 94.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "SPACE
+ SHOOTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=236010702]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 0
+offset_left = 69.0
+offset_top = 241.0
+offset_right = 219.0
+offset_bottom = 271.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_77mu4")
+text = "PLAY"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=93220563]
+anchor_mode = 0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

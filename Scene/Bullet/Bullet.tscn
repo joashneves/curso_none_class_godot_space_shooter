@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ljcxfjgt3cp2" path="res://Assets/Jogador/spr_tiro_jogador_contorno[1].png" id="2_ehult"]
 [ext_resource type="Texture2D" uid="uid://bpfb6qciepvgf" path="res://Assets/Jogador/spr_tiro_jogador_contorno[2].png" id="3_6f53m"]
 [ext_resource type="Texture2D" uid="uid://dfc2twagdiuyl" path="res://Assets/Jogador/spr_tiro_jogador_contorno[3].png" id="4_vpqty"]
+[ext_resource type="AudioStream" uid="uid://di3fmekmlbi4a" path="res://Assets/Sons/sfx_laser1.ogg" id="6_6f53m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8jiq"]
 animations = [{
@@ -39,3 +40,7 @@ frame_progress = 0.3242952
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951147414]
 shape = SubResource("RectangleShape2D_yb4rl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1587940576]
+stream = ExtResource("6_6f53m")
+autoplay = true

@@ -33,16 +33,18 @@ size = Vector2(33, 35)
 script = ExtResource("1_3y4r4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1714214951]
+modulate = Color(1, 1, 1, 0.57254905)
 sprite_frames = SubResource("SpriteFrames_vivmo")
 autoplay = "default"
-frame_progress = 0.60839915
+frame_progress = 0.13260302
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1548196234]
+visible = false
 position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_a5ns8")
 
 [node name="Timer" type="Timer" parent="." unique_id=697765403]
-wait_time = 1.5
+wait_time = 2.0
 autostart = true
 
 [node name="bulletpoint" type="Marker2D" parent="." unique_id=1704340755]
